@@ -11,12 +11,19 @@ function App() {
     const updateBooks = [...books, { id: ++bookID, title: title }];
 
     setBooks(updateBooks);
-    console.log(books);
+  };
+
+  const deleteBook = (id) => {
+    const updateBooks = books.filter((book) => {
+      return book.id !== id;
+    });
+
+    setBooks(updateBooks);
   };
 
   return (
     <div className="container is-fluid">
-      <BookList books={books} />
+      <BookList books={books} onDelete={deleteBook} />
       <BookCreate onCreate={createBook} />
     </div>
   );
