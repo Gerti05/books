@@ -5,7 +5,7 @@ function BookList({ books, onDelete }) {
     return <BookShow key={book.id} book={book} onDelete={onDelete} />;
   });
 
-  return <div>{renderBooks}</div>;
+  return <div className="columns is-multiline">{renderBooks}</div>;
 }
 
 export default BookList;

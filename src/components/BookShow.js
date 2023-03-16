@@ -4,7 +4,7 @@ function BookShow({ book, onDelete }) {
   };
 
   return (
-    <div>
+    <div className="column is-one-quarter">
       <div className="card">
         <div className="card-content">
           <div className="media">
@@ -12,19 +12,9 @@ function BookShow({ book, onDelete }) {
               <figure className="image is-128x128">
                 <img
                   src="https://bulma.io/images/placeholders/128x128.png"
-                  alt="Placeholder image"
+                  alt="Placeholder"
                 ></img>
               </figure>
-            </div>
-            <div className="media-content">
-              <div className="content">
-                <label className="title is-3 control">{book.title}</label>
-                <p className="mt-4">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Phasellus nec iaculis mauris. Lorem ipsum dolor sit amet,
-                  consectetur adipiscing elit.
-                </p>
-              </div>
             </div>
             <div className="media-right">
               <button
@@ -33,6 +23,7 @@ function BookShow({ book, onDelete }) {
               ></button>
             </div>
           </div>
+          <label className="title is-3">{book.title}</label>
         </div>
       </div>
     </div>
