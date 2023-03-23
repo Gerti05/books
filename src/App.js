@@ -13,6 +13,18 @@ function App() {
     setBooks(updateBooks);
   };
 
+  const editBookByID = (id, newTitle) => {
+    const updatedBooks = books.map((book) => {
+      if (book.id === id) {
+        return { ...book, title: newTitle };
+      }
+
+      return book;
+    });
+
+    setBooks(updatedBooks);
+  };
+
   const deleteBook = (id) => {
     const updateBooks = books.filter((book) => {
       return book.id !== id;
@@ -23,7 +35,7 @@ function App() {
 
   return (
     <div className="container is-fluid">
-      <BookList books={books} onDelete={deleteBook} />
+      <BookList books={books} onDelete={deleteBook} onEdit={editBookByID} />
       <BookCreate onCreate={createBook} />
     </div>
   );

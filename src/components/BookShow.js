@@ -1,7 +1,22 @@
-function BookShow({ book, onDelete }) {
+import { useState } from "react";
+import BookEdit from "./BookEdit";
+
+function BookShow({ book, onDelete, onEdit }) {
+  const [showEdit, setShowEdit] = useState(false);
+
   const handleDelete = () => {
     onDelete(book.id);
   };
+
+  const handleEdit = () => {
+    setShowEdit(!showEdit);
+  };
+
+  let content = <span>{book.title}</span>;
+
+  if (showEdit) {
+    content = <BookEdit book={book} onEdit={onEdit} />;
+  }
 
   return (
     <div className="column is-one-quarter">
@@ -17,13 +32,16 @@ function BookShow({ book, onDelete }) {
               </figure>
             </div>
             <div className="media-right">
+              <button className="button is-info" onClick={handleEdit}>
+                E
+              </button>
               <button
                 className="button is-danger delete"
                 onClick={handleDelete}
               ></button>
             </div>
           </div>
-          <label className="title is-3">{book.title}</label>
+          <label className="title is-3">{content}</label>
         </div>
       </div>
     </div>
