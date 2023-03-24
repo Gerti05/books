@@ -15,7 +15,7 @@ function BookShow({ book, onDelete, onEdit }) {
   const handleSubmit = (id, newTitle) => {
     setShowEdit(false);
     onEdit(id, newTitle);
-  }
+  };
 
   let content = <span>{book.title}</span>;
 
@@ -31,7 +31,7 @@ function BookShow({ book, onDelete, onEdit }) {
             <div className="media-left">
               <figure className="image is-128x128">
                 <img
-                  src="https://bulma.io/images/placeholders/128x128.png"
+                  src={`https://picsum.photos/seed/${book.id}/128/128`}
                   alt="Placeholder"
                 ></img>
               </figure>
